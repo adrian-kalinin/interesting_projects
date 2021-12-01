@@ -20,5 +20,5 @@ urlpatterns = [
     path('swagger/', swagger_view, name='swagger'),
 
     path('api/', include('apps.projects.urls'), name='projects'),
-    path('api/accounts/', include('apps.accounts.urls'), name='accounts')
+    path('auth/', include('apps.accounts.urls'), name='accounts')
 ]
