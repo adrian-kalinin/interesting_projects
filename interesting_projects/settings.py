@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     'apps.accounts',
-    'apps.projects'
+    'apps.projects',
+    'apps.webhooks'
 ]
 
 MIDDLEWARE = [
