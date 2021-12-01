@@ -1,11 +1,14 @@
 from django.db import models
 
+from apps.accounts.models import User
+
 
 class ProjectEntry(models.Model):
     name = models.CharField(max_length=120)
     description = models.TextField()
     link = models.CharField(max_length=240, unique=True)
     rating = models.IntegerField()
+    owner = models.ForeignKey(User, related_name='project_entries', on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True)
@@ -24,4 +27,4 @@ class ProjectEntry(models.Model):
         ]
 
     def __str__(self):
-        return self.name  # f'{self.name} (self.link)'
+        return f'{self.name} ({self.id})'

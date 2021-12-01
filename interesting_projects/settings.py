@@ -23,7 +23,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
 
+    'apps.accounts',
     'apps.projects'
 ]
 
@@ -80,10 +82,18 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication'
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
 
+
+AUTH_USER_MODEL = 'accounts.User'
+LOGIN_REDIRECT_URL = '/api/project-entries/'
+LOGOUT_REDIRECT_URL = '/api/project-entries/'
 
 LANGUAGE_CODE = 'en-us'
 

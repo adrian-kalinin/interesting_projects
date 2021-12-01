@@ -15,8 +15,10 @@ swagger_view = TemplateView.as_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('apps.projects.urls'), name='projects'),
 
     path('openapi-schema/', schema_view, name='openapi-schema'),
-    path('swagger/', swagger_view, name='swagger')
+    path('swagger/', swagger_view, name='swagger'),
+
+    path('api/', include('apps.projects.urls'), name='projects'),
+    path('api/accounts/', include('apps.accounts.urls'), name='accounts')
 ]
