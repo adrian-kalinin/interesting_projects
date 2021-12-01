@@ -19,6 +19,6 @@ urlpatterns = [
     path('openapi-schema/', schema_view, name='openapi-schema'),
     path('swagger/', swagger_view, name='swagger'),
 
-    path('api/', include('apps.projects.urls'), name='projects'),
+    path('projects/', include('apps.projects.urls'), name='projects'),
     path('auth/', include('apps.accounts.urls'), name='accounts')
 ]

@@ -5,7 +5,7 @@ from .views import ProjectEntryViewSet
 
 
 router = DefaultRouter()
-router.register('project-entries', ProjectEntryViewSet)
+router.register('', ProjectEntryViewSet)
 
 
 urlpatterns = [
