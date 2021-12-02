@@ -4,6 +4,7 @@ from .models import WebhookConfig
 
 
 class WebhookConfigSerializer(serializers.ModelSerializer):
+    url = serializers.URLField()
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
