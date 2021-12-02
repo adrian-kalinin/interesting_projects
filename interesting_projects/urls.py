@@ -1,6 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, URLPattern
 from rest_framework.schemas import get_schema_view
+from typing import List
 
 from django.views.generic import TemplateView
 
@@ -13,7 +14,7 @@ swagger_view = TemplateView.as_view(
 )
 
 
-urlpatterns = [
+urlpatterns: List[URLPattern] = [
     path('admin/', admin.site.urls),
 
     path('openapi-schema/', schema_view, name='openapi-schema'),

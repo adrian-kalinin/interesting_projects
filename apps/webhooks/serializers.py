@@ -1,12 +1,14 @@
 from rest_framework import serializers
+from django.db import models
+from typing import List
 
 from .models import WebhookConfig
 
 
 class WebhookConfigSerializer(serializers.ModelSerializer):
-    url = serializers.URLField()
-    owner = serializers.ReadOnlyField(source='owner.username')
+    url: serializers.Field = serializers.URLField()
+    owner: serializers.Field = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
-        model = WebhookConfig
-        fields = ['url', 'owner']
+        model: models.Model = WebhookConfig
+        fields: List[str] = ['url', 'owner']
