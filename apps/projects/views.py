@@ -1,5 +1,4 @@
-from rest_framework import viewsets
-from rest_framework import permissions
+from rest_framework import viewsets, permissions, filters
 from rest_framework.response import Response
 
 from .models import ProjectEntry
@@ -10,6 +9,8 @@ from apps.accounts.permissions import IsOwnerOrReadOnly
 class ProjectEntryViewSet(viewsets.ModelViewSet):
     queryset = ProjectEntry.objects.all()
     serializer_class = ProjectEntrySerializer
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['rating', 'created_at']
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
