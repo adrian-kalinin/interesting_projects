@@ -2,3 +2,5 @@ Django~=3.2.9
 djangorestframework~=3.12.4
 python-dotenv~=0.19.2
 httpx~=0.21.1
+PyYAML~=6.0
+uritemplate~=4.1.1
