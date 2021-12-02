@@ -1,6 +1,7 @@
 from rest_framework import viewsets, permissions, serializers
 from rest_framework.response import Response
 from rest_framework.request import Request
+from typing import List
 
 from .models import WebhookConfig
 from .serializers import WebhookConfigSerializer
